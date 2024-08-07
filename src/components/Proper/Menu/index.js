@@ -22,6 +22,7 @@ function Menu({ children, items = [], onChange = defaultFn }) {
                 <MenuItem
                     key={index}
                     data={item}
+                    offset={[12, 8]}
                     onClick={() => {
                         if (isParent) {
                             setHistory((prev) => [...prev, item.children]);
@@ -54,6 +55,7 @@ function Menu({ children, items = [], onChange = defaultFn }) {
                     </PopperWrapper>
                 </div>
             )}
+            onHide={() => setHistory((prev) => prev.slice(0, 1))}
         >
             {children}
         </Tippy>
